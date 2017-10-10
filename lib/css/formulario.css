@@ -1,0 +1,35 @@
+/* vim: sw=4 ts=4 expandtab */
+.contenedor{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contenedor_formulario{
+    border: 1px solid #a5a5a5;
+    border-radius: 0px 0pc 6px 6px;   
+}
+.encabezado{
+    border: 1px solid #a5a5a5;
+    border-radius: 6px 6px 0px 0px;
+    background-color:#a5a5a5;
+}
+.titulo_encabezado{
+    color:white;
+    margin-bottom:5px;
+    margin-left:4px;
+}
+.campos_formulario{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.campo_enviar{
+    text-align:right;
+}
+.campo_enviar input{
+    height: 34px;
+    border-radius:4px;
+}
+.error p{
+    color:red;
+}
