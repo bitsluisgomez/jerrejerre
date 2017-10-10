@@ -1,0 +1,29 @@
+<!-- vim: sw=4 ts=4 expandtab -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Media Query</title>
+<link rel="stylesheet" type="text/css" href="lib/css/formulario.css">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="encabezado">
+        <h2 class="titulo_encabezado"> GAME SAS</h2>
+        </div>
+        <div class="contenedor_formulario">
+            <div class="campos_formulario">
+                <h3>Formulario de carga de información</h3>
+                <form action="mostrar_datos.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="archivo_usuario"/>
+                    <div class="error">
+                        <p>Mensaje de error<p> 
+                    </div>
+                    <div class="campo_enviar">
+                        <input type="submit" value="Enviar Formulario" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
