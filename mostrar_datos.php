@@ -1,33 +1,26 @@
 <!-- vim: sw=4 ts=4 expandtab -->
-<?php
-include("config.php");
-include("gestionar_db.php");
-//guardar_archivo($_FILES["archivo_usuario"]);  
-$usuarios = convertir_a_arreglo($_FILES["archivo_usuario"]["tmp_name"]);
-$db = new Gestionar_db($G_HOST_NAME,$G_USER_NAME,$G_PASSWORD,$G_DATABASE_NAME);
-insertar_datos_usuarios($usuarios,$db);
-
-
-function insertar_datos_usuarios($usuarios,$db){
-    for($i = 0; $i< count($usuarios);$i++){
-        $usuario = $usuarios[$i];
-        $db->insertar_datos($usuario["email"],$usuarios["nombre"],$usuario["apellido"],$usuario["codigo"]);
-    }
-}
-
-function convertir_a_arreglo($name_file){
-    $usuarios = Array();
-    $fp = fopen($name_file, "r");
-    while (!feof($fp)){
-        $usuario = Array();
-        $linea = fgets($fp);
-        $datos_usuario = explode(",",$linea);;
-        $usuario["email"] = $datos_usuario[0];
-        $usuario["nombre"] = $datos_usuario[1];
-        $usuario["apellido"] = $datos_usuario[2];
-        $usuario["codigo"] = $datos_usuario[3];
-        array_push($usuarios,$usuario);
-    }
-    fclose($fp);
-    return $usuarios;
-}
+<html>
+    <head>
+    <title> Datos de los usuarios</title>
+    </head>
+    <body>
+        <link rel="stylesheet" type="text/css" href="lib/css/tablas.css">
+        <a href="formulario.html"> &#60;&#60; volver </a>
+        <?php
+            include("gestionar_datos.php");
+            $gestionar_datos = new Gestionar_datos($_FILES);
+        ?>
+        <h3> Usuarios activo</h3>
+        <?php
+            $gestionar_datos->create_table(1);
+        ?>
+        <h3>Usuario inactivo</h3>
+        <?php
+            $gestionar_datos->create_table(2);
+        ?>
+        <h3> Usuario en espera </h3>
+        <?php
+            $gestionar_datos->create_table(3);
+        ?>
+    </body>
+</html>
